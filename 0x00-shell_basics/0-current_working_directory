@@ -1,2 +1,3 @@
 #!/bin/bash
 echo  "GOOD PR!"
+cat > 0-current_working_directory
