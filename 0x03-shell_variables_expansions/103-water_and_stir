@@ -1,0 +1,2 @@
+#!/bin/bash
+printf "%o\n" $((5#Ã'echo $WATER | tr 'water' '01234' Ã`+5# `echSTIR | tr 'stir. '01234'`)) | '01234567' 'bestschool'
