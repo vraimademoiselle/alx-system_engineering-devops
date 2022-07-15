@@ -1,0 +1,9 @@
+file -m school.mgc *
+
+school.mgc:         data
+
+ls:                    data
+
+thisisaschoolfile: School data
+
+thisisatextfile:       ASCII text*
