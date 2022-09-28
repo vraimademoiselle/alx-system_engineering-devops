@@ -1,8 +1,25 @@
 #!/usr/bin/env bash
-# Script that installs Nginx server, redirects /redirect_me and customizes 404 not found
-apt-get -y update
-apt-get -y install nginx
-echo "Holberton School" > /var/www/html/index.nginx-debian.html
-echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
-sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/luischaparroc permanent;\n\n\terror_page 404 \/custom_404.html;\n\tlocation = \/custom_404.html {\n\t\troot \/usr\/share\/nginx\/html;\n\t\tinternal;\n\t}/" /etc/nginx/sites-available/default
-service nginx start
+# Install nginx with custom 404 page that contains the string
+# Ceci n'est pas une page.
+
+# Install nginx
+sudo apt update
+sudo apt install -y nginx
+
+# Add custom 404 error page to /etc/nginx/sites-enabled/default at line 53
+sudo sed -i "53s/.*/\t\terror_page 404 \/custom_404.html;\n\t\tlocation \/custom_404.html {\n\t\t\t\troot \/var\/www\/html;\n\t\t\t\tinternal;\n\t\t}/" /etc/nginx/sites-enabled/default
+
+# Create default nginx folder for pages
+sudo mkdir -p /var/www/html
+
+# Create custom_404.html file
+sudo touch var/www/html/custom_404.html
+
+# Change file ownership to current user to allow editing
+sudo chown -R "$USER":"$USER" /var/www/html/custom_404.html
+
+# Overwite file content
+echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
+
+# Restart nginx server
+sudo service nginx restart
