@@ -1,4 +1,5 @@
-!.[This is an image].(https://media.makeameme.org/created/if-you-could-436e34b63e.jpg)
+![This is an image](https://media.makeameme.org/created/if-you-could-436e34b63e.jpg)
+
 # Issue summary
 Access to server endpoint using curl 0:80 was returning curl: (7) Failed to connect to 0 port 80: Connection refused. The issue lasted for 2 hours after the last server update from a team member up to when it was resolved. The Airbnb clone website was completely inaccessible to half of the clients during the 2 hours downtime. This was caused by a wrong port value set in nginx configuration files.
 
@@ -35,7 +36,7 @@ and nginx was restarted by the command:
 
 `sudo service nginx restart`
 
-Corrective and Preventative measures.
+# Corrective and Preventative measures.
 Nginx server management can be improved by using script automation. A server monitoring tool should be set up to enable quick response to problems. Todos
 
 Restrict users' access to the server to avoid unconfirmed server changes.
