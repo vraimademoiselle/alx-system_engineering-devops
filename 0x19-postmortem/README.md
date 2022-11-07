@@ -13,11 +13,14 @@ Tried to restart nginx sudo service nginx restart
 
 failed
 
-Check log files cat /var/log/nginx/error.log | tail -10 bind() to [::]:8080 failed (98: Address already in use)
+Check log files 
+`cat /var/log/nginx/error.log | tail -10 bind() to [::]:8080 failed (98: Address already in use)`
 
-Check processes using ports netstat -lpn nginx was listening on port 8080
+Check processes using ports netstat 
+`-lpn nginx was listening on port 8080`
 
-Checked nginx configuration files; cat /etc/nginx/sites-available/default cat /etc/nginx/sites-enabled/default
+Checked nginx configuration files; 
+`cat /etc/nginx/sites-available/default cat /etc/nginx/sites-enabled/default`
 
 The problem was with nginx configuration in the file /etc/nginx/sites-enabled/default . Nginx was listening on 8080 instead of 80.
 
